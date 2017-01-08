@@ -5,7 +5,6 @@ use std::collections::*;
 use std::cmp::*;
 use std::iter::*;
 
-/* text_io macros */
 macro_rules! read(
   () => { read!("{}") };
   ($text:expr) => {{
@@ -25,7 +24,6 @@ macro_rules! scan(
   ($input:expr => $text:expr, $($arg:expr),*) => {{
     use ::std::io::Read;
     use ::std::str::FromStr;
-    // typesafe macros :)
     let text: &'static str = $text;
     let stdin: &mut Iterator<Item = u8> = &mut ($input);
 
@@ -59,7 +57,8 @@ macro_rules! scan(
 #[allow(dead_code)]
 static BS: i64 = 1000000007;
 
-/*********SOLUTION**********/
+
+/*************************************************/
 
 
 
