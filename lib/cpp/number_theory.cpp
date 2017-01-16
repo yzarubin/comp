@@ -17,6 +17,11 @@ ll fast_mod_exp(ll a, ll b, ll p) {
   return res;
 }
 
+ll mod_inverse(ll a, ll p) {
+  return fast_mod_exp(a, p-2, p);
+}
+
+
 
 ll n_choose_k(ll n, ll k) {
   if (k > n) return 0;
@@ -30,6 +35,7 @@ ll n_choose_k(ll n, ll k) {
   }
   return result;
 }
+
 
 //Binomial coefficient C(n,k) mod prime
 ll n_choose_k_prime(ll n, ll k, ll p) {
