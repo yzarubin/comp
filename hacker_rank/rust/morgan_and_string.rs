@@ -56,22 +56,92 @@ macro_rules! scan(
 
 #[allow(dead_code)] static BS: i64 = 1000000007;
 
-
+/*************************************************/
 /******************SOLUTION***********************/
+/*************************************************/
+//MZBMWEYYDIADTLCOUEGMDBYFWUR
 
+//ZZYYZZZA
+//ZZYYZZZB
 
-
-
+//ZZYYZZZBZZYYZZZA
+//ZZYYZZYYZZZAZZZB
+//ABACABA
+//ABACABA
 
 fn main() {
-/*
-  let mut buffer = String::new();
-  io::stdin().read_to_string(&mut buffer).unwrap();
-  let input = buffer.split('\n').collect::<Vec<_>>();
-*/
 
+    let t: i32 = read!();
 
+    for _ in 0..t {
+      let s1 = {let s1: String = read!(); s1}.into_bytes();
+      let s2 = {let s2: String = read!(); s2}.into_bytes();
+      let mut i = 0;
+      let mut j = 0;
 
+      while i  < s1.len() && j < s2.len() {
+        if s1[i] == s2[j] {
+          let mut k = 0; 
+
+          let mut pref2 = false;
+
+          loop {
+            if i+k >= s1.len() {
+              pref2 = true;
+              break;
+            } else if j+k >= s2.len() {
+              break;
+            } else if s1[i+k] < s2[j+k] {
+              break;
+            } else if s1[i+k] > s2[j+k] {
+              pref2 = true;
+              break;
+            }
+            k+= 1;
+          }
+
+          if !pref2 {
+            print!("{}", s1[i] as char);
+            i += 1;
+            while i < s1.len() && s1[i-1] == s1[i] {
+              print!("{}", s1[i] as char);
+              i += 1;
+            }
+          } else if pref2 {
+            print!("{}", s2[j] as char);
+            j += 1;
+            while j < s2.len() && s2[j-1] == s2[j] {
+              print!("{}", s2[j] as char);
+              j += 1;
+            }
+          }
+
+          
+        } else {
+
+          if s1[i] < s2[j] {
+            print!("{}", s1[i] as char);
+            i += 1;
+          } else {
+            print!("{}", s2[j] as char);
+            j += 1;
+          }
+        }
+
+      }
+
+      for x in i..s1.len() {
+        print!("{}", s1[x] as char);
+      }
+
+      for x in j..s2.len() {
+        print!("{}", s2[x] as char);
+      }
+
+      print!("\n");
+      
+
+    }
 }
 
 
