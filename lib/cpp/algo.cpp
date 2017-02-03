@@ -52,3 +52,11 @@ for (int i = 1; i < s.size(); i++) {
   }
 }
 
+ll gcd(ll a, ll b) {
+  while (a && b) {
+    if (a >= b) a %= b;
+    else b %= a;
+  }
+
+  return a + b;
+}

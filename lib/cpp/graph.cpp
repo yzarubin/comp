@@ -17,7 +17,7 @@ int find_parent(int n) {
   return parent[n];
 }
 
-void mergeNodes(int a, int b) {
+void merge_nodes(int a, int b) {
   int parentA = find_parent(a);
   int parentB = find_parent(b);
 

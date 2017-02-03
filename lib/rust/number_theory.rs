@@ -16,3 +16,17 @@ fn fast_mod(mut a: i64, mut b: i64, p: i64) -> i64 {
 
   return res;
 }
+
+fn nck(n: i64, mut k: i64) -> i64 {
+  if k > n { return 0 }
+  if k * 2 > n { k = n - k }
+  if k == 0 { return 1 };
+
+  let mut result: i64 = n;
+  for i in 2..k+1 {
+    result *= n - i + 1;
+    result /= i;
+  }
+
+  return result;
+}

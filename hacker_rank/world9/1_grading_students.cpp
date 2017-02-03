@@ -50,6 +50,22 @@ struct cmp {
 int main() {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
+
+
+  int n; cin >> n;
+  while (n--) {
+    int k; cin >> k;
+    if (k < 38) cout << k << endl;
+    else {
+      if ((k + 1) % 5 == 0) {
+        cout << k + 1 << endl;
+      } else if ((k + 2) % 5 == 0) {
+        cout << k + 2 << endl;
+      } else {
+        cout << k << endl;
+      }
+    }
+  }
   
   return 0;
 }

@@ -50,6 +50,25 @@ struct cmp {
 int main() {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
+
+  string s; cin >> s;
+
+  unordered_set<int> st;
+
+  int g = s[0] - 'a' + 1;
+  st.insert(g);
+  for (int i = 1; i < s.size(); i++) {
+    if (s[i-1] == s[i]) g += s[i] - 'a' + 1;
+    else g = s[i] -'a' + 1;
+    st.insert(g);
+  }
+
+  int q; cin >> q;
+  while (q--) {
+    int k; cin >> k;
+    cout << (st.count(k) ? "Yes" : "No") << endl; 
+
+  }
   
   return 0;
 }

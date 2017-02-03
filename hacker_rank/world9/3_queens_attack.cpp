@@ -47,9 +47,39 @@ struct cmp {
   bool operator()(int &a, int &b) { return a < b; }
 };
 
+unordered_map<int, unordered_map<int, bool>> m;
+
+
+int mx[8] = {1,1,-1,-1,0,0,1,-1};
+int my[8] = {1,-1,1,-1,1,-1,0,0};
+
 int main() {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
+
+  int n, k; cin >> n >> k;
+  int rq, cq; cin >> rq >> cq;
+
+  while (k--) {
+    int r, c; cin >> r >> c;
+    m[r][c] = true;
+  }
+  int ans = 0;
+
+  for (int i = 0; i < 8; i++) {
+    int r = rq;
+    int c = cq;
+
+    while (true) {
+      r += mx[i];
+      c += my[i];
+      if (r < 1 || r > n || c < 1 || c > n) break;
+
+      if (m.count(r) && m[r].count(c)) break;
+      ans++;
+    }
+  }
+  cout << ans << endl;
   
   return 0;
 }

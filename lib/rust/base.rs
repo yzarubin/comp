@@ -55,8 +55,6 @@ macro_rules! scan(
 );
 
 #[allow(dead_code)] static BS: i64 = 1000000007;
-#[allow(dead_code)] fn addmod (a: i64, b: i64) -> i64 { let mut g = a + b; if a >= BS { g -= BS; }  g }
-#[allow(dead_code)] fn mulmod (a: i64, b: i64) -> i64 { a * b % BS } 
 
 
 /*************************************************/
