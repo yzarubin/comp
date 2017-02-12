@@ -1,9 +1,12 @@
 #![allow(unused_imports)]
 #![allow(non_snake_case)]
+#![allow(dead_code)] 
 use std::io::{self, Read};
 use std::collections::*;
 use std::cmp::*;
 use std::iter::*;
+use std::str::FromStr;
+use std::fmt::Debug;
 
 macro_rules! read(
   () => { read!("{}") };
@@ -54,12 +57,16 @@ macro_rules! scan(
   }};
 );
 
-#[allow(dead_code)] static BS: i64 = 1000000007;
+static BS: i64 = 1000000007;
+fn ri() -> i64 { let r: i64 = read!(); r }
+fn rs() -> String { let r: String = read!(); r }
+fn ru() -> usize { let r: usize = read!(); r }
+fn rvec<T: FromStr>() -> Vec<T> where T::Err:Debug {
+  return ({let r: String = read!("{}\n"); r}).split_whitespace().map(|x|x.parse().unwrap()).collect::<Vec<_>>(); 
+}
 
 
 /******************SOLUTION***********************/
-
-
 
 
 
@@ -73,5 +80,8 @@ fn main() {
 
 
 }
+
+
+
 
 

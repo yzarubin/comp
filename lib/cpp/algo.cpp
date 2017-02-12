@@ -22,7 +22,7 @@ int msort(vector<int> &arr, vector<int> &temp, int left, int right) {
   int mid, inv_count = 0;
   if (right > left) {
     mid = (right + left)/2;
-    inv_count  = msort(arr, temp, left, mid);
+    inv_count = msort(arr, temp, left, mid);
     inv_count += msort(arr, temp, mid+1, right);
     inv_count += merge(arr, temp, left, mid+1, right);
   }

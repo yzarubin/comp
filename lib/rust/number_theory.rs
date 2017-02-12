@@ -30,3 +30,23 @@ fn nck(n: i64, mut k: i64) -> i64 {
 
   return result;
 }
+
+
+fn sieve(sz: usize) -> Vec<i64> {
+  let mut primes = vec![1; sz];
+
+  for i in (2usize..).take_while(|x| x * x < sz) {
+    if primes[i] == 1 {
+      for j in (i..).take_while(|x| i * x < sz) {
+        primes[i * j] = 0;
+      } 
+    }
+  }
+  return primes;
+}
+
+
+
+
+
+
