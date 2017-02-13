@@ -1,6 +1,7 @@
 #![allow(unused_imports)]
 #![allow(non_snake_case)]
 #![allow(dead_code)] 
+#![allow(non_camel_case_types)]
 use std::io::{self, Read};
 use std::collections::*;
 use std::cmp::*;
@@ -64,7 +65,7 @@ fn ru() -> usize { let r: usize = read!(); r }
 fn rvec<T: FromStr>() -> Vec<T> where T::Err:Debug {
   return ({let r: String = read!("{}\n"); r}).split_whitespace().map(|x|x.parse().unwrap()).collect::<Vec<_>>(); 
 }
-
+type u = usize;
 
 /******************SOLUTION***********************/
 
@@ -76,7 +77,6 @@ fn main() {
   io::stdin().read_to_string(&mut buffer).unwrap();
   let input = buffer.split('\n').collect::<Vec<_>>();
 */
-
 
 
 }
