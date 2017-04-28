@@ -4,13 +4,20 @@
 
 using namespace std;
 
+ll gcd(ll a, ll b) {
+  while (a && b) {
+    if (a >= b) a %= b;
+    else b %= a;
+  }
+  return a + b;
+}
 
 ll fast_mod_exp(ll a, ll b, ll p) {
   ll res = 1;
 
   while (b > 0) {
     if (b & 1) res = (res * a) % p;
-    a= (a * a) % p;
+    a = (a * a) % p;
     b >>= 1;
   }
  
@@ -121,4 +128,5 @@ void sieve (ll M) {
 ll sumSeries(ll n) {
   return n * (n + 1) / 2;
 }
+
 
