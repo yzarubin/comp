@@ -1,10 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <complex>
-
-using namespace std;
-
 template<typename T>
 string sv(vector<T> &v) {
   if (v.size() == 0) return "[]";

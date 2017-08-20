@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-#include <vector>
-
-using namespace std;
 
 ll gcd(ll a, ll b) {
   while (a && b) {
