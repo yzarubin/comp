@@ -7,7 +7,7 @@ ll gcd(ll a, ll b) {
   return a + b;
 }
 
-ll fast_mod_exp(ll a, ll b, ll p) {
+ll mod_exp(ll a, ll b, ll p) {
   ll res = 1;
 
   while (b > 0) {
@@ -23,8 +23,6 @@ ll mod_inverse(ll a, ll p) {
   return fast_mod_exp(a, p-2, p);
 }
 
-
-
 ll n_choose_k(ll n, ll k) {
   if (k > n) return 0;
   if (k * 2 > n) k = n - k;
@@ -37,7 +35,6 @@ ll n_choose_k(ll n, ll k) {
   }
   return result;
 }
-
 
 //Binomial coefficient C(n,k) mod prime
 ll n_choose_k_prime(ll n, ll k, ll p) {
@@ -108,7 +105,6 @@ void pascal(int n) {
   }
 }
 
-vector<bool> primesMemo;
 void sieve (ll M) {
   primesMemo.resize(M + 1, true);
   for (ll i = 2; i * i <= M; i++) {
@@ -120,8 +116,24 @@ void sieve (ll M) {
   }
 }
 
-ll sumSeries(ll n) {
-  return n * (n + 1) / 2;
+
+vector<long long> sieve_up_to(long long m) {
+  vector<bool> memo(M + 1, true);
+
+  for (long long i = 2; i * i <= M; i++) {
+    if (memo[i]) {
+      for (long long j = i; i * j <= M; j++) {
+        memo[i * j] = false;
+      }
+    }
+  }
+
+  return memo;
+}
+
+
+ll sum_series(ll n) {
+  return n * (n + 1LL) / 2LL;
 }
 
 

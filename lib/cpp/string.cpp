@@ -1,5 +1,5 @@
 
-vector<int> create_prefix_table(string pattern) {
+vector<int> create_prefix_table(string &pattern) {
     vector<int> kmp(pattern.size());
     int pos = 2, cand = 0;
     kmp[0] = -1;
@@ -15,7 +15,8 @@ vector<int> create_prefix_table(string pattern) {
     return kmp;
 }
 
-vector<int> kmp_multi_match(string &s, string &pattern, vector<int> &prefix_table) {
+// Pass true to last parameter to get all starting indices
+vector<int> kmp_multi_match(string &s, string &pattern, vector<int> &prefix_table, bool multi) {
     vector<int> res;
     if (s.size() < pattern.size()) return res;
 
@@ -27,6 +28,7 @@ vector<int> kmp_multi_match(string &s, string &pattern, vector<int> &prefix_tabl
             pos = prefix_table[pos] > -1 ? prefix_table[pos] : 0;
         } else if (++pos == pattern.size()) { // match
             res.push_back(start);
+            if (!multi) return res;
             start++;
             pos = 0;
         }
